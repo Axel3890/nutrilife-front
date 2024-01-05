@@ -1,0 +1,48 @@
+.actividades {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .actividades label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 15px; /* Aumenté el espacio entre las opciones */
+  }
+  
+  .actividades input {
+    display: none;
+  }
+  
+  .actividades svg {
+    gap: 20px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    fill: #333; /* Cambia el color según tus preferencias */
+  }
+  
+  .actividades input:checked + svg {
+    fill: #007bff; /* Cambia el color seleccionado según tus preferencias */
+  }
+  
+  .btncalories {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btncalories:hover {
+    background-color: #0056b3; /* Cambia el color al pasar el ratón según tus preferencias */
+  }
+  
+  p {
+    margin-top: 10px;
+  }

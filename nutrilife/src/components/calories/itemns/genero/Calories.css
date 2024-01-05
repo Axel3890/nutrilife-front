@@ -1,0 +1,52 @@
+.calories {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cardgender {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para apilar los elementos verticalmente */
+    justify-content: space-around;
+    width: 500px;
+    height: 450px;
+    border-radius: 30px;
+    align-items: center; /* Centra los elementos horizontalmente */
+    background: #e0e0e0;
+    box-shadow: 15px 15px 30px #bebebe,
+               -15px -15px 30px #ffffff;
+}
+
+.genderButtons {
+    display: flex;
+    flex-direction: column; /* Alinea los botones verticalmente */
+    align-items: center; /* Centra los botones horizontalmente */
+}
+
+.genderButton {
+    margin-bottom: 20px; /* Cambiado a un valor fijo en lugar de porcentaje */
+    height: 100px;
+    width: 200px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.genderButton:hover {
+    background-color: #2980b9;
+}
+
+.genderButton span {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

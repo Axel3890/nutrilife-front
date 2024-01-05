@@ -1,0 +1,71 @@
+.recipedetail {
+    /* Ajusta según tus necesidades */
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .contenedor {
+    width: 900px;
+    height: 600px;
+    background-color: aqua;
+    display: flex;
+  }
+
+  .contenedorimg{
+    background-color: black;
+    height: auto;
+    width: 450px;
+    overflow: hidden;
+  }
+
+  .contenedorgral{
+    background-color: rgb(245, 226, 226);
+    height: auto;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+
+  }
+
+p{
+  font-size: 1.3em;
+}
+
+.titulo{
+  font-family: 'Martel', serif;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+
+.detail, .specs{
+  font-family: 'Lora', serif;
+}
+  .contenedortitulo{
+    margin-top: 60px;
+    justify-content: flex-start;
+
+  }
+
+  .info{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .detail-container{
+    text-align: left;
+  }
+
+.svg-container {
+  position: absolute;
+  top: 10px; /* Ajusta la posición vertical según tus necesidades */
+  right: 10px; /* Ajusta la posición horizontal según tus necesidades */
+  background-color: transparent; /* Opcional: ajusta el color de fondo según tus necesidades */
+}
+  
