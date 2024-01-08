@@ -1,19 +1,21 @@
 import "./datos.css"
 import { useState } from "react";
-const Datos = () => {
+const Datos = ({ onSeleccion, calcular }) => {
     const [altura, setAltura] = useState('');
     const [peso, setPeso] = useState('');
     const [edad, setEdad] = useState('');
 
-    const handleGuardarDatos = () => {
-        // Aquí puedes realizar cualquier lógica que necesites con los datos ingresados
-        console.log("Datos guardados:", {
-            altura,
-            peso,
-            edad,
-        });
-        // También podrías llamar a una función externa para procesar los datos, por ejemplo:
-        // procesarDatos({ altura, peso, edad });
+    const handleCalcular = () => {
+        // Verifica si se ha seleccionado una opción de movimiento antes de avanzar
+        if (altura && peso && edad) {
+            // Llama a la función para avanzar a la siguiente etapa y pasa los datos
+            onSeleccion({
+                datos: altura, peso, edad,
+            });
+        } else {
+            // Puedes manejar la falta de selección de movimiento de alguna manera
+            console.error("Debes llenar los datos.");
+        }
     };
     return(
         <div className="cardgender">
@@ -30,7 +32,8 @@ const Datos = () => {
                 <input type="text" name="edad" value={edad}  onChange={(e) => setEdad(e.target.value)} class="input" placeholder="Age"/>
                 <div class="highlight"></div>
             </div>
-            <button className="btncalories" onClick={handleGuardarDatos}>Guardar Datos</button>
+            <button className="btncalories" onClick={handleCalcular}>Guardar Datos</button>
+            <button className="btncalories" onClick={calcular}>Calcular</button>
         </div>
     )
 }
