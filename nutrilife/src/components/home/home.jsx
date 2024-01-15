@@ -14,9 +14,6 @@ const Home = () => {
             </div>
 
         </div>
-        <div className="img">
-            <img src={img} width={'400px'} height={'400px'}></img>
-        </div>
     </div>
     )
 };

@@ -10,6 +10,7 @@ import Detail from "./components/detailrecipe/detailrecipe";
 import appfirebase from "./credenciales";
 import { useState } from "react";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
+import Favoritos from "./components/Favoritos/Favoritos";
 const auth = getAuth(appfirebase);
 
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/calories" element={<Calculador />} />
         <Route path="/recipes" element={<Recipes />} />
+        <Route path="/favorites" element={<Favoritos />} />
         <Route path="/detail/:idDetail" element={<Detail />} />
       </Routes>
     </div>

@@ -6,6 +6,9 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 const auth = getAuth(appfirebase);
 
 const Login = () => {
+    const [estaLogeado, setEstaLogeado] = useState(false);
+    const [registrando, setRegistrando] = useState(false);
+    
     useEffect(() => {
         const container = document.getElementById('container');
         const registerBtn = document.getElementById('register');
@@ -20,29 +23,47 @@ const Login = () => {
                 container.classList.remove("active");
             });
         }
+        const unsubscribe = auth.onAuthStateChanged((usuario) => {
+            if (usuario) {
+                // El usuario está autenticado
+                setEstaLogeado(true);
+                localStorage.setItem('estaLogeado', 'true');
+            } else {
+                // El usuario no está autenticado
+                setEstaLogeado(false);
+                localStorage.setItem('estaLogeado', 'false');
+            }
+        });
+
+        return () => unsubscribe();
     }, []);
 
-    const [registrando, setRegistrando] = useState(false)
-    console.log(registrando)
+    console.log("soy está logeado", estaLogeado)
 
-    const autenticacion = async(event) => {
+    const autenticacion = async (event) => {
         event.preventDefault();
         const correo = event.target.email.value;
         const contraseña = event.target.password.value;
-        console.log(correo, contraseña)
-
-        if(registrando){
-            await createUserWithEmailAndPassword(auth, correo, contraseña)
-        }
-        else{
-            try {
-                signInWithEmailAndPassword(auth, correo, contraseña);
-                alert("ingresaste")
-            } catch (error) {
-                alert("El correo o la contraseña son incorrectos");
+        console.log(correo, contraseña);
+    
+        try {
+            if (registrando) {
+                await createUserWithEmailAndPassword(auth, correo, contraseña);
+                // Si no hay errores, la autenticación fue exitosa al registrar.
+                console.log("Usuario registrado con éxito");
+            } else {
+                await signInWithEmailAndPassword(auth, correo, contraseña);
+                // Si no hay errores, la autenticación fue exitosa al iniciar sesión.
+                console.log("Inicio de sesión exitoso");
+                localStorage.setItem('userEmail', correo)
             }
+        } catch (error) {
+            console.error("Error de autenticación:", error.message);
+            alert("El correo o la contraseña son incorrectos");
         }
-    }
+    };
+
+
     return(
         <div className="login">
             <div className="container" id="container">
@@ -90,6 +111,7 @@ const Login = () => {
                             <h1>Hello! Don't have an account yet?</h1>
                             <p>Register to discover a world of recipes!</p>
                             <button className="hidden" id="register" onClick={()=>setRegistrando(!registrando)}>Sign up</button>
+
                         </div>
                     </div>
                 </div>

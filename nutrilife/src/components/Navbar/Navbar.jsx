@@ -1,6 +1,22 @@
 import "./Navbar.css"
 import { Link } from "react-router-dom";
+
+import appfirebase from "../../credenciales";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+const auth = getAuth(appfirebase)
 const Navbar = () =>{
+    const estaLogeado = localStorage.getItem('estaLogeado');
+    console.log("navbar", estaLogeado)
+
+    const desloguear = async () => {
+        try {
+            await auth.signOut();
+            localStorage.setItem('estaLogeado', 'false');
+            console.log("Usuario deslogeado con éxito");
+        } catch (error) {
+            console.error("Error al intentar desloguear:", error.message);
+        }
+    }
     return(
     <div className="nav">
  <header>
@@ -21,8 +37,16 @@ const Navbar = () =>{
                     <Link to="/favorites"><a href="">Favorites</a></Link>
                 </li>
                 <li>
-                    <Link to="/login"><a href="">Sesion</a></Link>
-                </li>
+              {estaLogeado ? (
+                <a href="" onClick={desloguear}>
+                  Logout
+                </a>
+              ) : (
+                <Link to="/login">
+                  <a href="">Login</a>
+                </Link>
+              )}
+            </li>
             </ul>
         </nav>
         <label for="nav_check" class="hamburger">

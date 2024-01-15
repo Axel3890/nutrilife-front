@@ -6,13 +6,17 @@
         <article class="cardrecipe">
             <Link to={`/detail/${recipe.id}`}>
             <div class="card-int">
-                <span class="card__span">Category</span>
+                <span class="card__span">Time: {recipe.time}</span>
                 <div class="img">
                     <img src={recipe.image}></img>
                 </div>
                 <div class="card-data">
-                <p class="title">{recipe.label}
-                </p><p>{recipe.label}</p>
+                <p class="title">{recipe.label}</p>
+                <p>
+                    Calorias: {recipe.calories}
+                    <br></br>
+                    Ingredientes: {recipe.ingredients.length}
+                </p>
                 <button class="buttoncard">More info</button>
                 </div>
             </div>
