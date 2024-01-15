@@ -3,6 +3,7 @@ import Datos from "./itemns/datos/datos";
 import Calories from "./itemns/genero/calories";
 import Movimientos from "./itemns/movimiento/movimiento";
 import "./Calculador.css"
+import Swal from 'sweetalert2';
 const Calculador = () => {
     const [etapa, setEtapa] = useState("calories");
     const [datosPrevios, setDatosPrevios] = useState({});
@@ -47,7 +48,15 @@ const Calculador = () => {
         console.log(factorActividad)
         const caloriasDiarias = Math.round(geb * factorActividad);
 
-        console.log('Calorías Diarias Totales:', caloriasDiarias);
+        Swal.fire({
+            title: 'Calorías Diarias',
+            text: `Tus calorías diarias son: ${caloriasDiarias}`,
+            icon: 'success',
+          });Swal.fire({
+            title: 'Calorías Diarias',
+            text: `Tus calorías diarias son: ${caloriasDiarias}`,
+            icon: 'success',
+          });
         // Puedes almacenar o mostrar el resultado según tus necesidades
     };
 

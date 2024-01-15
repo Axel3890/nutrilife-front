@@ -1,6 +1,5 @@
 
 import "./home.css"
-const img = require("../../utils/landing.jpg");
 const Home = () => {
     return(
         <div className="landing">

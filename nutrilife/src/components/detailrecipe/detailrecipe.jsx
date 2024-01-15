@@ -4,6 +4,8 @@ import { getDetail } from "../../requests/getDetail";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Detail = () => {
     const { idDetail } = useParams();
@@ -30,22 +32,29 @@ const Detail = () => {
     fetchData();
   }, [idDetail]);
 
-  const addFav = async() =>{
-    const recetaID = idDetail
+  const addFav = async () => {
+    const recetaID = idDetail;
     try {
-      const info = {email, recetaID}
-      const send = await axios.post('http://localhost:3001/addFav', info)
+      const info = { email, recetaID };
+      await axios.post('http://localhost:3001/addFav', info);
+  
+      // Mostrar mensaje de éxito}
+      console.log("añadido")
+      toast.success('Receta añadida a favoritos correctamente');
     } catch (error) {
       console.error('Error al agregar a favoritos:', error);
+  
+      // Mostrar mensaje de error
+      toast.error('Error al agregar a favoritos');
     }
-  }
+  };
 
 
     return(
         <div className="recipedetail">
             <div className="contenedor">
                 <div className="contenedorimg">
-                    <img src={detail.image} style={{overflow: "hidden"}}></img>
+                    <img src={detail.image} style={{ width: '100%', height: '100%', objectFit: 'cover' }}/>
                 </div>
                 <div className="contenedorgral">
                 <div className="svg-container"><button onClick={addFav}> <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 512 512"><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg> </button></div>
