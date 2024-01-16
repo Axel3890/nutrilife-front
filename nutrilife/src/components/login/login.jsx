@@ -70,14 +70,8 @@ const Login = () => {
                 <div className="form-container sign-up">
                     <form onSubmit={autenticacion}>
                         <h1>Creat your account</h1>
-                        <div className="social-icons">
-                            <a href="#" className="icon"><i class="fa fa-google" aria-hidden="true"></i></a>
-                            <a href="#" className="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" className="icon"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" className="icon"><i class="fa-brands fa-linked-in"></i></a>
-                        </div>
                 {/* REGISTRARSE */}
-                        <span>Or use your email to register</span>
+
                         <input type="text" name="email" placeholder="Email"/>
                         <input type="password" name="password" placeholder="Password"/>
                         <button type="sumbit">Sign up</button>
@@ -87,13 +81,7 @@ const Login = () => {
                 <div className="form-container sign-in">
                 <form onSubmit={autenticacion}>
                         <h1>Log in</h1>
-                        <div className="social-icons">
-                            <a href="#" className="icon"><i class="fa-brands fa-google"></i></a>
-                            <a href="#" className="icon"><i className="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" className="icon"><i className="fa-brands fa-github"></i></a>
-                            <a href="#" className="icon"><i className="fa-brands fa-linked-in"></i></a>
-                        </div>
-                        <span>Or use your email and password</span>
+
                         <input type="text" name="email" placeholder="Email"/>
                         <input type="password" name="password" placeholder="Password"/>
                         <a href="#">Did you forget your password?</a>

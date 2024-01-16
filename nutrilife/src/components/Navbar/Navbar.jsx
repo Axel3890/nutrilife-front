@@ -1,62 +1,61 @@
 import "./Navbar.css"
-import { Link } from "react-router-dom";
-
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import appfirebase from "../../credenciales";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 const auth = getAuth(appfirebase)
-const Navbar = () =>{
-    const estaLogeado = localStorage.getItem('estaLogeado');
-    console.log("navbar", estaLogeado)
 
-    const desloguear = async () => {
-        try {
-            await auth.signOut();
-            localStorage.setItem('estaLogeado', 'false');
-            console.log("Usuario deslogeado con éxito");
-        } catch (error) {
-            console.error("Error al intentar desloguear:", error.message);
-        }
-    }
-    return(
+const Navbar = () => {
+  const [currentPage, setCurrentPage] = useState(''); // Estado para la página actual
+  const location = useLocation();
+
+  useEffect(() => {
+    // Actualiza el estado de la página actual cuando cambia la ubicación
+    setCurrentPage(location.pathname);
+  }, [location.pathname]);
+
+  return (
     <div className="nav">
- <header>
+      <header>
         <div className="logo">Nutri Life</div>
         <input type="checkbox" id="nav_check" hidden></input>
         <nav>
-            <ul>
-                <li>
-                    <Link to="/Home"><a href="" className="active">Home</a></Link>
-                </li>
-                <li>
-                    <Link to="/recipes"><a href="">Recipes</a></Link>
-                </li>
-                <li>
-                    <Link to="/calories"><a href="">Calories</a></Link>
-                </li>
-                <li>
-                    <Link to="/favorites"><a href="">Favorites</a></Link>
-                </li>
-                <li>
-              {estaLogeado ? (
-                <a href="" onClick={desloguear}>
-                  Logout
-                </a>
-              ) : (
-                <Link to="/login">
-                  <a href="">Login</a>
-                </Link>
-              )}
+          <ul>
+            <li>
+              <Link to="/Home" className={currentPage === '/Home' ? 'active' : ''}>
+                Home
+              </Link>
             </li>
-            </ul>
+            <li>
+              <Link to="/recipes" className={currentPage === '/recipes' ? 'active' : ''}>
+                Recipes
+              </Link>
+            </li>
+            <li>
+              <Link to="/calories" className={currentPage === '/calories' ? 'active' : ''}>
+                Calories
+              </Link>
+            </li>
+            <li>
+              <Link to="/favorites" className={currentPage === '/favorites' ? 'active' : ''}>
+                Favorites
+              </Link>
+            </li>
+            <li>
+              <Link to="/login" className={currentPage === '/login' ? 'active' : ''}>
+                Login
+              </Link>
+            </li>
+          </ul>
         </nav>
-        <label for="nav_check" class="hamburger">
-            <div></div>
-            <div></div>
-            <div></div>
+        <label htmlFor="nav_check" className="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
         </label>
-    </header>
+      </header>
     </div>
-    )
+  );
 };
 
 export default Navbar;

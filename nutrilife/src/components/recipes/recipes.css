@@ -1,10 +1,11 @@
-.recetas{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
+.recetas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
+
 .search {
   display: inline-block;
   position: relative;
@@ -29,19 +30,54 @@
   position: absolute;
   top: 0;
   right: 0;
-  transition: .9s ease;
+  transition: 0.9s ease;
 }
 
 .search button[type="submit"]:hover {
   transform: scale(1.1);
-  color: rgb(255, 255, 255);
+  color: #fff;
   background-color: blue;
 }
 
 .cardsrecetas {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   gap: 20px;
+  justify-content: space-between; /* Ajusta el espacio entre las tarjetas */
+}
+
+.cardsrecetas .card {
+  flex: 1 1 calc(25% - 20px); /* Ajusta el ancho de la tarjeta */
+  max-width: calc(25% - 20px); /* Ajusta el ancho máximo de la tarjeta */
+  box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.cardsrecetas .card:hover {
+  transform: scale(1.05);
+}
+
+.cardsrecetas img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cardsrecetas .card-content {
+  padding: 10px;
+  text-align: left;
+}
+
+.cardsrecetas .card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.cardsrecetas .card-description {
+  font-size: 14px;
+  color: #555;
 }

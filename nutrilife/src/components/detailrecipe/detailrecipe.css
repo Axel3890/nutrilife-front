@@ -1,72 +1,116 @@
+/* Estilo para el contenedor principal */
 .recipedetail {
-    /* Ajusta según tus necesidades */
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .contenedor {
-    width: 900px;
-    height: 600px;
-    background-color: aqua;
-    display: flex;
-  }
-
-  .contenedorimg{
-    background-color: black;
-    height: auto;
-    width: 450px;
-    overflow: hidden;
-    object-fit: cover;
-  }
-
-  .contenedorgral{
-    background-color: rgb(245, 226, 226);
-    height: auto;
-    width: 450px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 30px;
-    position: relative;
-
-  }
-
-p{
-  font-size: 1.3em;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.titulo{
+/* Estilo para el contenedor interno */
+.contenedor {
+  display: flex;
+  width: 900px;
+  height: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el contenedor de la imagen */
+.contenedorimg {
+  background-color: #333;
+  height: auto;
+  width: 450px;
+  overflow: hidden;
+}
+
+/* Estilo para la imagen */
+.contenedorimg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto hover para la imagen */
+.contenedorimg:hover img {
+  transform: scale(1.1);
+}
+
+/* Estilo para el contenedor de la información general */
+.contenedorgral {
+  background-color: #fff;
+  height: auto;
+  width: 450px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  position: relative;
+}
+
+/* Estilo para el botón SVG */
+.svg-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto hover para el botón SVG */
+.svg-container:hover {
+  transform: scale(1.1);
+}
+
+/* Estilo para el título */
+.titulo {
   font-family: 'Martel', serif;
   font-weight: 400;
   font-size: 1.5em;
+  color: #333;
 }
 
-.detail, .specs{
+/* Estilo para la información (tiempo y calorías) */
+.info {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  color: #000000;
+}
+
+/* Estilo para los detalles (tiempo y calorías) */
+.detail {
   font-family: 'Lora', serif;
+  display: flex;
+  flex-direction: column;
 }
-  .contenedortitulo{
-    margin-top: 60px;
-    justify-content: flex-start;
-
-  }
-
-  .info{
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-  }
-
-  .detail-container{
-    text-align: left;
-  }
-
-.svg-container {
-  position: absolute;
-  top: 10px; /* Ajusta la posición vertical según tus necesidades */
-  right: 10px; /* Ajusta la posición horizontal según tus necesidades */
-  background-color: transparent; /* Opcional: ajusta el color de fondo según tus necesidades */
+/* Estilo para la lista de ingredientes */
+.detalle {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Estilo para los elementos de la lista de ingredientes */
+.detalle li {
+  font-family: 'Lora', serif;
+  font-size: 1.1em;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.vertical-line {
+  border-left: 2px solid #5c5959;
+  height: 100%;
+  margin: 0 15px;
+}
+
+/* Estilo para el mensaje de carga de ingredientes */
+.detalle p {
+  font-family: 'Lora', serif;
+  color: #000000;
+}
+
   

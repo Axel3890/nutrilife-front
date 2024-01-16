@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import wallpaper2 from "../src/utils/wallpaper2.jpg";
 import './App.css';
 import Home from "./components/home/home"

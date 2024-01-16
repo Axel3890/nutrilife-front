@@ -1,7 +1,7 @@
 .cardrecipe {
     width: 300px;
     padding: 10px;
-    background-image: linear-gradient(to right bottom, #5d0391, #7b05ae, #9b05cb, #bd00e7, #bd00e7);
+    background-image: linear-gradient(to right bottom, #ee7300, #ee8002, #e07006, #e98c02, #e77b00);
     background-size: 200% 200%;
     border-radius: 12px;
   }
@@ -46,7 +46,7 @@
   .buttoncard {
     width: 100%;
     margin-top: 15px;
-    background-image: linear-gradient(to right bottom, #5d0391, #7b05ae, #9b05cb, #bd00e7, #bd00e7);
+    background-image: linear-gradient(to right bottom, #669103, #7bae05, #a6e007, #94c903, #8ee700);
     background-size: 200% 200%;
     border: none;
     padding: 8px 10px;
