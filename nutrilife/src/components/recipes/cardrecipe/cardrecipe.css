@@ -1,9 +1,10 @@
 .cardrecipe {
     width: 300px;
     padding: 10px;
-    background-image: linear-gradient(to right bottom, #ee7300, #ee8002, #e07006, #e98c02, #e77b00);
     background-size: 200% 200%;
     border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1.19); /* Agrega una sombra suave */
+    transition: box-shadow 0.3s ease; /* Agrega transición suave a la sombra */
   }
   
   .card-int {

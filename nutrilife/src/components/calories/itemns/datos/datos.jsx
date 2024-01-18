@@ -21,15 +21,15 @@ const Datos = ({ onSeleccion, calcular }) => {
         <div className="cardgender">
             <h2>A continuacion, ingresa tus datos</h2>
             <div class="input-container">
-                <input type="text" name="altura" value={altura}  onChange={(e) => setAltura(e.target.value)}class="input" placeholder="Heigth"/>
+                <input type="number" name="altura" value={altura}  onChange={(e) => setAltura(e.target.value)}class="input" placeholder="Heigth(cms)"/>
                 <div class="highlight"></div>
             </div>
             <div class="input-container">
-                <input type="text" name="peso" value={peso}  onChange={(e) => setPeso(e.target.value)} class="input" placeholder="Weigth"/>
+                <input type="number" name="peso" value={peso}  onChange={(e) => setPeso(e.target.value)} class="input" placeholder="Weigth(kg)"/>
                 <div class="highlight"></div>
             </div>
             <div class="input-container">
-                <input type="text" name="edad" value={edad}  onChange={(e) => setEdad(e.target.value)} class="input" placeholder="Age"/>
+                <input type="number" name="edad" value={edad}  onChange={(e) => setEdad(e.target.value)} class="input" placeholder="Age"/>
                 <div class="highlight"></div>
             </div>
             <button className="btncalories" onClick={handleCalcular}>Guardar Datos</button>

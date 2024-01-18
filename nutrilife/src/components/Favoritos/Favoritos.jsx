@@ -13,12 +13,10 @@ const Favoritos = () => {
         fetchData();
     }, []);
 
-    console.log(favs)
+
     return(
         <div>
-            {favs && favs.map((recipe) => (
-          <Cardrecipe key={recipe.id} recipe={recipe} />
-        ))}
+<p>Hola</p>
         </div>
     )
 }

@@ -4,6 +4,8 @@ import Calories from "./itemns/genero/calories";
 import Movimientos from "./itemns/movimiento/movimiento";
 import "./Calculador.css"
 import Swal from 'sweetalert2';
+import Navbar from "../Navbar/Navbar";
+
 const Calculador = () => {
     const [etapa, setEtapa] = useState("calories");
     const [datosPrevios, setDatosPrevios] = useState({});
@@ -61,11 +63,12 @@ const Calculador = () => {
     };
 
     return (
+        <><Navbar></Navbar>
         <div className="calculador">
             {etapa === "calories" && <Calories onSeleccion={avanzarEtapa} />}
             {etapa === "movimientos" && <Movimientos onSeleccion={avanzarEtapa} />}
-            {etapa === "datos" && <Datos onSeleccion={avanzarEtapa} calcular ={calcular}/>}
-        </div>
+            {etapa === "datos" && <Datos onSeleccion={avanzarEtapa} calcular={calcular} />}
+        </div></>
     );
 };
 

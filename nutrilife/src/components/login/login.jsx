@@ -1,13 +1,15 @@
 import "./login.css"
 import React,  { useEffect, useState } from "react";
-
+import Swal from 'sweetalert2';
 import appfirebase from "../../credenciales";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import Navbar from "../Navbar/Navbar";
 const auth = getAuth(appfirebase);
 
 const Login = () => {
     const [estaLogeado, setEstaLogeado] = useState(false);
     const [registrando, setRegistrando] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
     
     useEffect(() => {
         const container = document.getElementById('container');
@@ -25,11 +27,10 @@ const Login = () => {
         }
         const unsubscribe = auth.onAuthStateChanged((usuario) => {
             if (usuario) {
-                // El usuario está autenticado
                 setEstaLogeado(true);
                 localStorage.setItem('estaLogeado', 'true');
             } else {
-                // El usuario no está autenticado
+
                 setEstaLogeado(false);
                 localStorage.setItem('estaLogeado', 'false');
             }
@@ -49,41 +50,48 @@ const Login = () => {
         try {
             if (registrando) {
                 await createUserWithEmailAndPassword(auth, correo, contraseña);
-                // Si no hay errores, la autenticación fue exitosa al registrar.
-                console.log("Usuario registrado con éxito");
+                Swal.fire({
+                    title: "Good job!",
+                    text: "you have registered successfully!",
+                    icon: "success"
+                  });
             } else {
                 await signInWithEmailAndPassword(auth, correo, contraseña);
-                // Si no hay errores, la autenticación fue exitosa al iniciar sesión.
-                console.log("Inicio de sesión exitoso");
+                Swal.fire("Welcome!", correo);
                 localStorage.setItem('userEmail', correo)
             }
         } catch (error) {
             console.error("Error de autenticación:", error.message);
-            alert("El correo o la contraseña son incorrectos");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Error, check the data carefully",
+              });
         }
     };
 
 
     return(
+        <><Navbar></Navbar>
         <div className="login">
             <div className="container" id="container">
                 <div className="form-container sign-up">
                     <form onSubmit={autenticacion}>
                         <h1>Creat your account</h1>
-                {/* REGISTRARSE */}
+                        {/* REGISTRARSE */}
 
-                        <input type="text" name="email" placeholder="Email"/>
-                        <input type="password" name="password" placeholder="Password"/>
+                        <input type="text" name="email" placeholder="Email" />
+                        <input type="password" name="password" placeholder="Password" />
                         <button type="sumbit">Sign up</button>
                     </form>
                 </div>
-                 {/* INICIO SESION */}
+                {/* INICIO SESION */}
                 <div className="form-container sign-in">
-                <form onSubmit={autenticacion}>
+                    <form onSubmit={autenticacion}>
                         <h1>Log in</h1>
 
-                        <input type="text" name="email" placeholder="Email"/>
-                        <input type="password" name="password" placeholder="Password"/>
+                        <input type="text" name="email" placeholder="Email" />
+                        <input type="password" name="password" placeholder="Password" />
                         <a href="#">Did you forget your password?</a>
                         <button type="sumbit">Log in</button>
                     </form>
@@ -93,18 +101,18 @@ const Login = () => {
                         <div className="toggle-pannel toggle-left">
                             <h1>Welcome!</h1>
                             <p>¿Do you already have an account? Log in to see the best recipes</p>
-                            <button className="hidden" id="login" onClick={()=>setRegistrando(!registrando)}>Log in</button>
+                            <button className="hidden" id="login" onClick={() => setRegistrando(!registrando)}>Log in</button>
                         </div>
                         <div className="toggle-pannel toggle-right">
                             <h1>Hello! Don't have an account yet?</h1>
                             <p>Register to discover a world of recipes!</p>
-                            <button className="hidden" id="register" onClick={()=>setRegistrando(!registrando)}>Sign up</button>
+                            <button className="hidden" id="register" onClick={() => setRegistrando(!registrando)}>Sign up</button>
 
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div></>
     )
 };
 

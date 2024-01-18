@@ -1,7 +1,6 @@
 /* Estilo para el contenedor principal */
 .recipedetail {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,11 +11,14 @@
   display: flex;
   width: 900px;
   height: auto;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+  border-radius: 20px;
+  margin-top: 70px;
 }
 
 /* Estilo para el contenedor de la imagen */
 .contenedorimg {
+  border-radius: 20px;
   background-color: #333;
   height: auto;
   width: 450px;
@@ -38,6 +40,7 @@
 
 /* Estilo para el contenedor de la información general */
 .contenedorgral {
+  border-radius: 20px;
   background-color: #fff;
   height: auto;
   width: 450px;

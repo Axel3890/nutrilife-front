@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 40px;
 }
 .container{
     background-color: #fff;
@@ -33,7 +34,7 @@
 }
 
 .container button {
-    background-color: #666800;
+    background-color: #10ac0b;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
