@@ -39,6 +39,12 @@
   background-color: rgb(255, 153, 0);
 }
 
+@media (max-width: 767px) {
+  .search input[type="text"] {
+    width: 305px;
+  }
+}
+
 .cardsrecetas {
   display: flex;
   flex-wrap: wrap;
@@ -46,10 +52,7 @@
   margin: 45px;
 }
 
-.cardrecipe {
-  width: calc(25% - 10px); /* 25% del ancho del contenedor, con un espacio de 10px entre tarjetas */
-  margin-bottom: 40px; /* Espacio inferior entre tarjetas */
-}
+
 .cardsrecetas .card {
   width: calc(25% - 20px); /* Ajusta el ancho de la tarjeta */
   max-width: calc(25% - 20px); /* Ajusta el ancho máximo de la tarjeta */
@@ -86,24 +89,9 @@
   color: #555;
 }
 
-@media screen and (max-width: 1200px) {
-  .cardsrecetas .card {
-    flex: 1 1 calc(33.33% - 20px); /* Ajusta el ancho de la tarjeta para pantallas más pequeñas */
-    max-width: calc(33.33% - 20px); /* Ajusta el ancho máximo de la tarjeta para pantallas más pequeñas */
-  }
-}
-
-@media screen and (max-width: 900px) {
-  .cardsrecetas .card {
-    flex: 1 1 calc(50% - 20px); /* Ajusta el ancho de la tarjeta para pantallas más pequeñas */
-    max-width: calc(50% - 20px); /* Ajusta el ancho máximo de la tarjeta para pantallas más pequeñas */
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .cardsrecetas .card {
-    flex: 1 1 calc(100% - 20px); /* Ajusta el ancho de la tarjeta para pantallas más pequeñas */
-    max-width: calc(100% - 20px); /* Ajusta el ancho máximo de la tarjeta para pantallas más pequeñas */
+@media (max-width: 767px) {
+  .cardsrecetas {
+    flex-direction: column;
   }
 }
 

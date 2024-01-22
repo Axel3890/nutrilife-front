@@ -1,48 +1,51 @@
 .cardrecipe {
-    width: 300px;
-    padding: 10px;
-    background-size: 200% 200%;
-    border-radius: 12px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 1.19); /* Agrega una sombra suave */
-    transition: box-shadow 0.3s ease; /* Agrega transición suave a la sombra */
-  }
-  
-  .card-int {
-    position: relative;
-    height: 100%;
-    overflow: hidden;
-    font-size: 14px;
-    border-radius: 6px;
-    background-color: white;
-  }
-  
-  .img {
-    width: 100%;
-    background-color: pink;
-    overflow: hidden;
-  }
-  
-  .title {
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .card-data {
-    padding: 20px;
-    font-size: 14px;
-  }
-  
-  .card__span {
-    font-family: 'Lucida Sans' sans-serif;
-    font-size: 11px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-  }
+  width: 300px;
+  padding: 10px;
+  background-size: 200% 200%;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 1.19);
+  transition: box-shadow 0.3s ease;
+}
+
+.card-int {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.img {
+  width: 100%;
+  background-color: pink;
+  overflow: hidden;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.card-data {
+  padding: 20px;
+  font-size: 14px;
+}
+
+.card__span {
+  font-family: 'Lucida Sans', sans-serif;
+  font-size: 11px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Media query para pantallas más pequeñas (ej. teléfonos) */
+
   
   .buttoncard {
     width: 100%;

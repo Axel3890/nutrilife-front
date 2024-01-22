@@ -4,6 +4,7 @@ import { getDetail } from "../../requests/getDetail";
 import Cardrecipe from "../recipes/cardrecipe/cardrecipe";
 import Navbar from "../Navbar/Navbar";
 import Notfound from "../notfound/notfound";
+import "./Favoritos.css"
 const Favoritos = () => {
   const [favs, setFavs] = useState([]);
   const [favIds, setFavIds] = useState([]);
@@ -39,10 +40,10 @@ const Favoritos = () => {
   return (
     <>
       <Navbar />
-      <div>
+      <div className="card-container">
         {isLoged === "true" ? (
           recipeDetails && recipeDetails.map((recipe) => (
-            <Cardrecipe recipe={recipe} />
+            <Cardrecipe key={recipe.id} recipe={recipe} />
           ))
         ) : (
           <Notfound />
