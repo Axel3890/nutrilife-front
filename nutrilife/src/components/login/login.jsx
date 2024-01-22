@@ -39,7 +39,6 @@ const Login = () => {
         return () => unsubscribe();
     }, []);
 
-    console.log("soy está logeado", estaLogeado)
 
     const autenticacion = async (event) => {
         event.preventDefault();

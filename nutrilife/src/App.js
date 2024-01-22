@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import fondo from "../src/utils/fondo.jpg"
+import fondo2 from "../src/utils/fondo2.jpg"
 import './App.css';
 import Home from "./components/home/home"
 import Login from "./components/login/login";
@@ -28,7 +28,7 @@ function App() {
   });
 
   return (
-    <div className="App" style={{ backgroundImage: `url(${fondo})`, height: '100vh', backgroundSize: 'cover' }}>
+    <div className="App" style={{ backgroundImage: `url(${fondo2})`, height: '100vh' }}>
       
       <Routes>
         <Route path="/" element={<Home />}/>

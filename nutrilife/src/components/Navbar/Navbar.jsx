@@ -1,18 +1,36 @@
-import "./Navbar.css"
+import "./Navbar.css";
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import appfirebase from "../../credenciales";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-const auth = getAuth(appfirebase)
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
+
+const auth = getAuth(appfirebase);
 
 const Navbar = () => {
-  const [currentPage, setCurrentPage] = useState(''); // Estado para la página actual
+  const [currentPage, setCurrentPage] = useState('');
+  const [user, setUser] = useState(null); // Nuevo estado para el usuario actual
   const location = useLocation();
 
   useEffect(() => {
-    // Actualiza el estado de la página actual cuando cambia la ubicación
     setCurrentPage(location.pathname);
+
+    // Verifica el estado de autenticación al cargar la página
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+    });
+
+    // Limpia el evento al desmontar el componente
+    return () => unsubscribe();
   }, [location.pathname]);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      // Después de cerrar sesión, puedes redirigir a la página de inicio o realizar otras acciones necesarias
+    } catch (error) {
+      console.error("Error al cerrar sesión", error);
+    }
+  };
 
   return (
     <div className="nav">
@@ -21,11 +39,6 @@ const Navbar = () => {
         <input type="checkbox" id="nav_check" hidden></input>
         <nav>
           <ul>
-            <li>
-              <Link to="/Home" className={currentPage === '/Home' ? 'active' : ''}>
-                Home
-              </Link>
-            </li>
             <li>
               <Link to="/recipes" className={currentPage === '/recipes' ? 'active' : ''}>
                 Recipes
@@ -42,9 +55,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/login" className={currentPage === '/login' ? 'active' : ''}>
-                Login
-              </Link>
+              {user ? (
+                // Si el usuario está autenticado, muestra el enlace de "Logout"
+                <Link to="/login" onClick={handleLogout} className={currentPage === '/login' ? 'active' : ''}>Logout</Link>
+              ) : (
+                // Si el usuario no está autenticado, muestra el enlace de "Login"
+                <Link to="/login" className={currentPage === '/login' ? 'active' : ''}>
+                  Login
+                </Link>
+              )}
             </li>
           </ul>
         </nav>
@@ -59,3 +78,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

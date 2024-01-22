@@ -40,14 +40,11 @@ const Detail = () => {
       const info = { email, recetaID };
       await axios.post('http://localhost:3001/addFav', info);
   
-
-      console.log("añadido");
       toast.success('Receta añadida a favoritos correctamente', {
         style: { backgroundColor: 'black', color: 'white' },
         autoClose: 2000,
       });
     } catch (error) {
-      console.error('Error al agregar a favoritos:', error);
   
 
       toast.error('Error al agregar a favoritos', {

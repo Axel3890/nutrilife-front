@@ -29,9 +29,9 @@ const Calculador = () => {
         console.log(altura)
         // Calcular el GEB según la ecuación de Harris-Benedict
         let geb = 0;
-        if (genero === 'masculino') {
+        if (genero === 'Male') {
             geb = 88.362 + (13.397 * peso) + (4.799 * altura) - (5.677 * edad);
-        } else if (genero === 'femenino') {
+        } else if (genero === 'Female') {
             geb = 447.593 + (9.247 * peso) + (3.098 * altura) - (4.330 * edad);
         }
 

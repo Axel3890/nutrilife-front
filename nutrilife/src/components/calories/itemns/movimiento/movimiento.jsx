@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "./movimiento.css"
+import { toast } from 'react-toastify';
 
 const Movimientos = ({ onSeleccion }) => {
     const [opcionSeleccionada, setOpcionSeleccionada] = useState(null);
@@ -9,15 +10,18 @@ const Movimientos = ({ onSeleccion }) => {
     };
 
     const handleNextClick = () => {
-        // Verifica si se ha seleccionado una opción de movimiento antes de avanzar
+
         if (opcionSeleccionada) {
-            // Llama a la función para avanzar a la siguiente etapa y pasa los datos
+
             onSeleccion({
                 movimiento: opcionSeleccionada,
             });
         } else {
-            // Puedes manejar la falta de selección de movimiento de alguna manera
-            console.error("Debes seleccionar un movimiento antes de continuar.");
+
+            toast.error('Select an option before continuing', {
+                style: { backgroundColor: 'black', color: 'white' },
+                autoClose: 2000,
+              });
         }
     };
 
@@ -82,7 +86,7 @@ const Movimientos = ({ onSeleccion }) => {
 
             </div>
             <button className='btncalories' onClick={handleNextClick}>Next</button>
-            <p>selected option: {opcionSeleccionada || 'None'}</p>
+            <h3>selected option: {opcionSeleccionada || 'None'}</h3>
         </div>
     );
 }

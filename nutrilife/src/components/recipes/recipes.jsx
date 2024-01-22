@@ -1,9 +1,9 @@
 import Cardrecipe from "./cardrecipe/cardrecipe";
 import "./recipes.css";
-import { useState, useEffect, useHistory } from "react";
+import { useState, useEffect } from "react";
 import { getRecipes } from "../../requests/getRecipes";
 import Loader from "../loader/Loader";
-
+import Nothing from "../nothing/nothing";
 import Navbar from "../Navbar/Navbar";
 
 const Recipes = () => {
@@ -43,44 +43,49 @@ const Recipes = () => {
 
   const clear = () => {
     localStorage.removeItem('recipesData');
-    setData(null)
+    setData(null);
+    setQuery('');
   }
 
   return (
     <>
       <Navbar />
       <div className="recetas">
-  
-        <form onSubmit={handleSumbit}>
-          <div className="search">
-            <input
-              placeholder="Search..."
-              type="text"
-              onChange={handleInputChange}
-              value={query}
-              name="query"
-            />
-            <button type="submit">Search</button>
-          </div>
-        </form>
+        <div className="bar">
+          <form onSubmit={handleSumbit}>
+            <div className="search">
+              <input
+                placeholder="Search..."
+                type="text"
+                onChange={handleInputChange}
+                value={query}
+                name="query"
+              />
+              <button type="submit">Search</button>
+            </div>
+          </form>
 
-        <button class="buttonclose" onClick={clear}>
-          <span class="X"></span>
-          <span class="Y"></span>
-          <div class="close">Clear</div>
-        </button>
-
+          <button className="buttonclose" onClick={clear}>
+            <span className="X"></span>
+            <span className="Y"></span>
+            <div className="close">Clear</div>
+          </button>
+        </div>
 
         {isLoading ? (
           <Loader />
         ) : (
-        <div className="cardsrecetas">
-          
-          {data &&
-            data.map((recipe) => (
-              <Cardrecipe key={recipe.id} recipe={recipe} />
-            ))}
-        </div>
+          <div>
+            {data && data.length > 0 ? (
+              <div className="cardsrecetas">
+                {data.map((recipe) => (
+                  <Cardrecipe key={recipe.id} recipe={recipe} />
+                ))}
+              </div>
+            ) : (
+              <Nothing />
+            )}
+          </div>
         )}
       </div>
     </>

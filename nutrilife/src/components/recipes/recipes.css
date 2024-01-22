@@ -112,7 +112,7 @@
   width: 4em;
   height: 4em;
   border: none;
-  background: rgba(180, 83, 107, 0.11);
+  background: #00000061;
   border-radius: 80px;
   transition: background 0.5s;
 }
@@ -175,4 +175,13 @@
   100% {
     opacity: 1;
   }
+}
+
+.bar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bar .buttonclose {
+  margin-left: 20px;
 }

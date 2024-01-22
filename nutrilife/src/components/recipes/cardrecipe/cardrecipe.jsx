@@ -2,6 +2,7 @@
  import { Link } from "react-router-dom"
  
  const Cardrecipe = ({recipe}) => {
+    console.log("soy recipe de card", recipe)
     return(
         <article class="cardrecipe">
             <Link to={`/detail/${recipe.id}`}>
