@@ -51,14 +51,10 @@ const Calculador = () => {
         const caloriasDiarias = Math.round(geb * factorActividad);
 
         Swal.fire({
-            title: 'Calorías Diarias',
-            text: `Tus calorías diarias son: ${caloriasDiarias}`,
+            title: 'Daily calories',
+            text: `Your daily calories are: ${caloriasDiarias}`,
             icon: 'success',
-          });Swal.fire({
-            title: 'Calorías Diarias',
-            text: `Tus calorías diarias son: ${caloriasDiarias}`,
-            icon: 'success',
-          });
+          })
         // Puedes almacenar o mostrar el resultado según tus necesidades
     };
 
